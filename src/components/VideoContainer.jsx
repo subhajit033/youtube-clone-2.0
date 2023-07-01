@@ -3,7 +3,6 @@ import VideoCard from "./VideoCard";
 import { YOUTUBE_API } from "../utils/constant";
 import VideoCardShimmer from "./VideoCardShimmer";
 const VideoContainer = () => {
-  
   const [videos, setVideos] = useState([]);
   useEffect(() => {
     getVideos();
@@ -12,7 +11,6 @@ const VideoContainer = () => {
     const apiCall = await fetch(YOUTUBE_API);
     const fetchedData = await apiCall.json();
     setVideos(fetchedData?.items);
-    console.log(fetchedData?.items);
   };
   return (
     <div className="flex flex-wrap justify-center items-start gap-10 h-[83vh] overflow-auto mt-4">

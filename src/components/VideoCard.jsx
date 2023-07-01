@@ -1,8 +1,14 @@
 import React from "react";
 
-const VideoCard = ({video}) => {
+const VideoCard = ({ video }) => {
+  const viewCount = Number(video?.statistics?.viewCount);
+  const currentDate = new Date();
+  const releasedDate = new Date(video?.snippet?.publishedAt);
+  const differenceInMiliSec = currentDate - releasedDate;
+  const hoursDiff = Math.floor(differenceInMiliSec / (1000 * 3600));
+
   return (
-    <div>
+    <div className=" p-2 shadow-2xl rounded-xl">
       <div className="mb-2">
         {/* video part */}
         <img
@@ -22,14 +28,31 @@ const VideoCard = ({video}) => {
         </div>
 
         <div>
-          <h2 className="font-semibold text-sm leading-4">
+          <h2 className="font-semibold text-sm leading-5">
             {video?.snippet?.title}
           </h2>
-          <p className="text-sm">{video?.snippet?.channelTitle}</p>
+          <p className="text-sm font-semibold text-gray-500">
+            {video?.snippet?.channelTitle}
+          </p>
           <div className="flex items-center gap-2">
-            <p className="text-xs">134k</p>
-            <i style={{fontSize: "0.3rem"}} className="fa-sharp fa-solid fa-circle text-gray-600"></i>
-            <p className="text-xs">8 days ago</p>
+            <p className="text-sm text-gray-600">
+              {viewCount > 1000000
+                ? (viewCount / 1000000).toFixed(1) + "M"
+                : viewCount > 1000
+                ? (viewCount / 1000).toFixed(1) + "K"
+                : viewCount}{" "}
+              views
+            </p>
+            <i
+              style={{ fontSize: "0.3rem" }}
+              className="fa-sharp fa-solid fa-circle text-gray-600"
+            ></i>
+            <p className="text-sm text-gray-600">
+              {hoursDiff >= 24
+                ? Math.round(hoursDiff / 24) + "days"
+                : hoursDiff + "hours"}{" "}
+              ago
+            </p>
           </div>
         </div>
       </div>

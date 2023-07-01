@@ -28,15 +28,5 @@ const VideoCardShimmer = () => {
     </div>
   );
 };
-// const ShimmerContainer = ()=>{
-//   return(
-//   <div>
-//     {Array(10).fill(" ").map((_, index)=>{
-//       return <VideoCardShimmer key={index} />
-//     })}
-//   </div>
-    
-//   )
-// }
 
 export default VideoCardShimmer;
