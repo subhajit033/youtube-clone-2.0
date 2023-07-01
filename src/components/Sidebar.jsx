@@ -2,10 +2,16 @@ import React from "react";
 import icon from "../assets/youtube-images/icon";
 import NavChild from "./childcomponents/NavChild";
 import Feature from "./childcomponents/Feature";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 const Sidebar = () => {
-  console.log(icon);
+  const isMenuOpen = useSelector((store) => {
+    return store.app.isMenuopen;
+  });
+  if(!isMenuOpen){
+    return null;
+  }
   return (
-    <div className="w-1/6 h-[91vh] border-2 border-black float-left px-2 block  overflow-auto">
+    <div className="w-1/6 h-[90vh] float-left px-2 block  overflow-auto">
       {/* 1st mainchild */}
       <div className="space-y-3 cu">
         {icon.nav.map((ele, index) => {

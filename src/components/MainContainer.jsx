@@ -3,7 +3,7 @@ import Genere from "./Genere";
 import VideoContainer from "./VideoContainer";
 const MainContainer = () => {
   return (
-    <div>
+    <div className="">
       MainContainer
       <Genere />
       <VideoContainer />
