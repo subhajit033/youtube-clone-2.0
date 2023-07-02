@@ -1,6 +1,11 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { closeMenu } from "../utils/appSlice";
 const WatchPage = () => {
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(closeMenu())
+  }, []);
   return (
     <div className="w-[100%] flex px-12 gap-10">
       <div className="border-2 border-black h-[90vh] w-2/3">
@@ -30,19 +35,19 @@ const WatchPage = () => {
               </button>
             </div>
             {/* like-dislike */}
-            {/* <i class="fa-solid fa-thumbs-up"></i> */}
+            {/* <i className="fa-solid fa-thumbs-up"></i> */}
             <div className="flex items-center gap-5">
               <div className="flex items-center gap-[2px]">
                 <button className="bg-gray-300 px-4 rounded-l-full">
                   <i className="fa-regular fa-thumbs-up text-2xl text-gray-600"></i>
                 </button>
                 <button className="bg-gray-300 px-4 rounded-r-full">
-                  <i class="fa-regular fa-thumbs-down text-2xl text-gray-600"></i>
+                  <i className="fa-regular fa-thumbs-down text-2xl text-gray-600"></i>
                 </button>
               </div>
               <button className="bg-gray-300 px-5 rounded-full py-0.5  flex items-center gap-2">
-              <i class="fa-regular fa-share-from-square text-2xl text-gray-600"></i>
-              <span className="font-semibold text-gray-600">Share</span>
+                <i className="fa-regular fa-share-from-square text-2xl text-gray-600"></i>
+                <span className="font-semibold text-gray-600">Share</span>
               </button>
             </div>
           </div>

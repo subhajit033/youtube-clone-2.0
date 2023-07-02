@@ -1,6 +1,6 @@
 import React from "react";
-
-const VideoCard = ({ video }) => {
+import { Link } from "react-router-dom";
+const VideoCard = ({ video, url }) => {
   const viewCount = Number(video?.statistics?.viewCount);
   const currentDate = new Date();
   const releasedDate = new Date(video?.snippet?.publishedAt);
@@ -11,11 +11,13 @@ const VideoCard = ({ video }) => {
     <div className=" p-2 shadow-2xl rounded-xl">
       <div className="mb-2">
         {/* video part */}
+        <Link to={`/watch?v=${url}`}>
         <img
           className="w-80 h-auto rounded-xl"
           src={video?.snippet?.thumbnails?.maxres?.url}
           alt="thumbnail"
         />
+        </Link>
       </div>
       {/* description part */}
       <div className="flex items-start space-x-4 px-0 w-80">

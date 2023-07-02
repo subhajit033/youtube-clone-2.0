@@ -21,7 +21,7 @@ const VideoContainer = () => {
               return <VideoCardShimmer key={inedx} />;
             })
         : videos.map((video) => {
-            return <VideoCard video={video} key={video.id} />;
+            return <VideoCard video={video} key={video.id} url={video.id} />;
           })}
     </div>
   );
