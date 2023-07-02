@@ -1,19 +1,29 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
+import { useSearchParams } from "react-router-dom";
+
 const WatchPage = () => {
+  const [searchParams] = useSearchParams();
+  const videoId = searchParams.get("v");  
   const dispatch = useDispatch();
-  useEffect(()=>{
-    dispatch(closeMenu())
+  useEffect(() => {
+    dispatch(closeMenu());
   }, []);
+  console.log("render xxxx");
   return (
     <div className="w-[100%] flex px-12 gap-10">
       <div className="border-2 border-black h-[90vh] w-2/3">
         <div>
-          <img
-            src="https://i.ytimg.com/vi/gYu2dEju6bI/maxresdefault.jpg"
-            alt=""
-          />
+          <iframe
+            width="950"
+            height="550"
+            src={`https://www.youtube.com/embed/${videoId}`}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
           <h1 className="text-xl font-semibold my-2">
             Sandeep Bhaya|| Season 1 || Ep.1
           </h1>

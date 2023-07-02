@@ -12,15 +12,16 @@ const VideoContainer = () => {
     const fetchedData = await apiCall.json();
     setVideos(fetchedData?.items);
   };
+  
   return (
     <div className="flex flex-wrap justify-center items-start gap-10 h-[83vh] overflow-auto mt-4">
-      {videos?.length === 0
+      {videos?.length === 0 || videos === undefined
         ? Array(10)
             .fill(" ")
             .map((_, inedx) => {
               return <VideoCardShimmer key={inedx} />;
             })
-        : videos.map((video) => {
+        : videos?.map((video) => {
             return <VideoCard video={video} key={video.id} url={video.id} />;
           })}
     </div>
