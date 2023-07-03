@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const VideoCard = ({ video, url }) => {
+import useChannelInfo from "../utils/useChannelInfo";
+const VideoCard = ({ video, url, channelId }) => {
   const viewCount = Number(video?.statistics?.viewCount);
   const currentDate = new Date();
   const releasedDate = new Date(video?.snippet?.publishedAt);
   const differenceInMiliSec = currentDate - releasedDate;
   const hoursDiff = Math.floor(differenceInMiliSec / (1000 * 3600));
-
+  const channelInfo = useChannelInfo(channelId);
+  
   return (
     <div className=" p-2 shadow-2xl rounded-xl">
       <div className="mb-2">
@@ -24,7 +26,7 @@ const VideoCard = ({ video, url }) => {
         <div className="">
           <img
             className="max-w-[2.5rem] rounded-full"
-            src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/c455078dc87c4e5b5c54648b9d7c79f3"
+            src={channelInfo?.snippet?.thumbnails?.medium?.url}
             alt="channel-logo"
           />
         </div>
