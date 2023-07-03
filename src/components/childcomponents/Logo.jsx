@@ -1,11 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../../utils/appSlice";
+
 const Logo = () => {
   const dispatch = useDispatch();
-  const handleToggleMenu = ()=>{
+  const handleToggleMenu = () => {
     dispatch(toggleMenu());
-  }
+  };
   return (
     <div className="flex items-center gap-4">
       <div onClick={handleToggleMenu}>
@@ -24,6 +25,7 @@ const Logo = () => {
           />
         </svg>
       </div>
+
       <img
         className="w-32 rounded-lg"
         src="https://t3.ftcdn.net/jpg/05/07/46/84/360_F_507468479_HfrpT7CIoYTBZSGRQi7RcWgo98wo3vb7.jpg"

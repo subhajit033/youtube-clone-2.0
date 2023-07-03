@@ -1,30 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
 import Loader from "./Loader";
 import useGetVdoDetails from "../utils/useGetVdoDetails";
-import useChannelInfo from "../utils/useChannelInfo";
+// import useChannelInfo from "../utils/useChannelInfo";
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v");
   const dispatch = useDispatch();
-  const videoDetails = useGetVdoDetails(videoId);
-  console.log(videoDetails?.snippet?.channelId);
-  // const channelInfo = useChannelInfo(videoDetails?.snippet?.channelId);
-  // console.log(channelInfo);
-  // if(videoDetails?.snippet?.channelId){
-  //   const channelInfo = useChannelInfo(videoDetails?.snippet?.channelId);
-  //  console.log(channelInfo);
-  // }
-  
+  const videoDetails = useGetVdoDetails(videoId);  
   useEffect(() => {
     dispatch(closeMenu());
   }, []);
   if (!videoDetails) {
     return <Loader />;
   }
-  
+
   const likeCount = Number(videoDetails?.statistics?.likeCount);
   return (
     <div className="w-[100%] flex px-12 gap-10">
@@ -48,7 +40,7 @@ const WatchPage = () => {
             <div className="flex items-center gap-5 my-4">
               <img
                 className="w-11"
-                src="https://yt3.ggpht.com/TopG7pa5R-ON0Bj1xNchLLZ4s0KGH8AJVeABJjuIuTdbZowqiDVxZIgjBeqDSsFj44bcVQ6W5A=s88-c-k-c0x00ffffff-no-rj"
+                src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
                 alt="avatar"
               />
               <div>
