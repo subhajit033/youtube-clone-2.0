@@ -10,7 +10,7 @@ const VideoCard = ({ video, url, channelId }) => {
   const channelInfo = useChannelInfo(channelId);
   
   return (
-    <div className=" p-2 shadow-2xl rounded-xl">
+    <div className=" p-2 rounded-xl shadow-xl transition duration-300 hover:-translate-y-2">
       <div className="mb-2">
         {/* video part */}
         <Link to={`/watch?v=${url}`}>
