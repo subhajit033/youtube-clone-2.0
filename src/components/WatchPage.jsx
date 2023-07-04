@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
 import Loader from "./Loader";
 import useGetVdoDetails from "../utils/useGetVdoDetails";
-// import useChannelInfo from "../utils/useChannelInfo";
+import CommentsContainer from "./CommentsContainer";
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v");
   const dispatch = useDispatch();
-  const videoDetails = useGetVdoDetails(videoId);  
+  const videoDetails = useGetVdoDetails(videoId);
   useEffect(() => {
     dispatch(closeMenu());
   }, []);
@@ -76,7 +76,12 @@ const WatchPage = () => {
             </div>
           </div>
         </div>
+        {/* {comment section} */}
+        <div>
+          <CommentsContainer />
+        </div>
       </div>
+
       <div className="border-2 border-red-600 h-[90vh] w-1/3"></div>
     </div>
   );

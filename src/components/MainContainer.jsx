@@ -3,14 +3,14 @@ import Genere from "./Genere";
 import VideoContainer from "./VideoContainer";
 import { useDispatch } from "react-redux";
 import { openMenu } from "../utils/appSlice";
-const MainContainer = () => {  
+const MainContainer = () => {
   const dispatch = useDispatch();
-  useEffect(()=>{
-    dispatch(openMenu())
-  }, [])
-  
+  useEffect(() => {
+    dispatch(openMenu());
+  }, []);
+
   return (
-    <div className="border-2 border-black flex-1">
+    <div className="flex-1">
       <Genere />
       <VideoContainer />
     </div>
