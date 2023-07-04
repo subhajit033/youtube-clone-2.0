@@ -8,7 +8,7 @@ const useGetVdoDetails = (videoId) => {
   }, []);
   const getSpecificVdo = async (videoId) => {
     const apiCall = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=AIzaSyB5jeiEonn7ayvuF-swnyjSVBlrD5Yt_ag`
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=AIzaSyCPKc81lUOLhviVHldc6EeruLp9qFliKcc`
     );
     const fetchedData = await apiCall.json();
 

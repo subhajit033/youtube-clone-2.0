@@ -7,6 +7,7 @@ const VideoCard = ({ video, url, channelId }) => {
   const releasedDate = new Date(video?.snippet?.publishedAt);
   const differenceInMiliSec = currentDate - releasedDate;
   const hoursDiff = Math.floor(differenceInMiliSec / (1000 * 3600));
+  
   const channelInfo = useChannelInfo(channelId);
   
   return (
@@ -27,6 +28,7 @@ const VideoCard = ({ video, url, channelId }) => {
           <img
             className="max-w-[2.5rem] rounded-full"
             src={channelInfo?.snippet?.thumbnails?.medium?.url}
+            // channelInfo?.snippet?.thumbnails?.medium?.url
             alt="channel-logo"
           />
         </div>
