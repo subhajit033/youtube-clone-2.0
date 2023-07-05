@@ -15,7 +15,6 @@ const useGetVdoSuggestions = () => {
         return video?.id?.kind === "youtube#video";
       })
     );
-    
   };
   return data;
 };
