@@ -15,7 +15,9 @@ const Searchbar = () => {
     setIsVisible(true);
   };
   const handleNoVisibility = () => {
-    setIsVisible(false);
+    setTimeout(() => {
+      setIsVisible(false);
+    }, 300);
   };
   const searchCache = useSelector((store) => {
     return store.search;
