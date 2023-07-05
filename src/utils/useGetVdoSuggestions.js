@@ -1,17 +1,21 @@
 import { useState, useEffect } from "react";
-
+import { API_KEY } from "./constant";
 const useGetVdoSuggestions = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
-    getVdoSuggestions("codewithharry");
+    getVdoSuggestions("javascript mastery");
   }, []);
   const getVdoSuggestions = async (searchQuery) => {
     const apiCall = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchQuery}&key=AIzaSyCPKc81lUOLhviVHldc6EeruLp9qFliKcc`
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchQuery}&key=${API_KEY}`
     );
     const fetchedData = await apiCall.json();
-    setData(fetchedData);
-    // console.log(fetchedData);
+    setData(
+      fetchedData?.items?.filter((video) => {
+        return video?.id?.kind === "youtube#video";
+      })
+    );
+    
   };
   return data;
 };

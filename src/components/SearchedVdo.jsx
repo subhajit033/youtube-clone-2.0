@@ -1,23 +1,21 @@
 import React from "react";
-
-const SearchedVdo = () => {
+import getVdoPublishedTime from "../utils/getVdoPublishedTime";
+const SearchedVdo = ({ video }) => {
+  const hoursDiff = getVdoPublishedTime(video?.snippet?.publishedAt);
   return (
     <div className="flex items-start gap-6 my-4">
       <div className="">
         {/* video part */}
         <img
           className="w-96 h-auto rounded-xl"
-          src={
-            "https://i.ytimg.com/vi/hKB-YGF14SY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC2knsH3PHkgmexe5C85L3lbk2FRw"
-          }
+          src={video?.snippet?.thumbnails?.medium?.url}
           alt="thumbnail"
         />
       </div>
       <div className="flex items-start space-x-4 px-0 w-[45vw]">
         <div className="space-y-2">
           <h2 className="font-semibold text-xl leading-5">
-            {/* {video?.snippet?.title} */}
-            Learn Javascript in one hour
+            {video?.snippet?.title}
           </h2>
           <div className="flex items-center gap-2">
             <p className="text-sm text-gray-600">
@@ -33,10 +31,10 @@ const SearchedVdo = () => {
               className="fa-sharp fa-solid fa-circle text-gray-600"
             ></i>
             <p className="text-sm text-gray-600">
-              {/* {hoursDiff >= 24
+              {hoursDiff >= 24
                 ? Math.round(hoursDiff / 24) + "days"
-                : hoursDiff + "hours"}{" "} */}
-              15 hours ago
+                : hoursDiff + "hours"}{" "}
+              ago
             </p>
           </div>
           <div className="flex items-center">
@@ -49,8 +47,7 @@ const SearchedVdo = () => {
               alt="channel-logo"
             />
             <p className="text-sm font-semibold text-gray-500">
-              {/* {video?.snippet?.channelTitle} */}
-              CodeWithHarry
+              {video?.snippet?.channelTitle}
             </p>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { API_KEY } from "./constant";
 const useGetVdoDetails = (videoId) => {
   const [videoDetails, setVideoDetails] = useState(null);
 
@@ -8,7 +8,7 @@ const useGetVdoDetails = (videoId) => {
   }, []);
   const getSpecificVdo = async (videoId) => {
     const apiCall = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=AIzaSyCPKc81lUOLhviVHldc6EeruLp9qFliKcc`
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${API_KEY}`
     );
     const fetchedData = await apiCall.json();
 

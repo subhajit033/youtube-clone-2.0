@@ -1,25 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useChannelInfo from "../utils/useChannelInfo";
+import getVdoPublishedTime from "../utils/getVdoPublishedTime";
 const VideoCard = ({ video, url, channelId }) => {
   const viewCount = Number(video?.statistics?.viewCount);
-  const currentDate = new Date();
-  const releasedDate = new Date(video?.snippet?.publishedAt);
-  const differenceInMiliSec = currentDate - releasedDate;
-  const hoursDiff = Math.floor(differenceInMiliSec / (1000 * 3600));
-  
+  const hoursDiff = getVdoPublishedTime(video?.snippet?.publishedAt);
+
   const channelInfo = useChannelInfo(channelId);
-  
+
   return (
     <div className=" p-2 rounded-xl shadow-xl transition duration-300 hover:-translate-y-2">
       <div className="mb-2">
         {/* video part */}
         <Link to={`/watch?v=${url}`}>
-        <img
-          className="w-80 h-auto rounded-xl"
-          src={video?.snippet?.thumbnails?.maxres?.url}
-          alt="thumbnail"
-        />
+          <img
+            className="w-80 h-auto rounded-xl"
+            src={video?.snippet?.thumbnails?.maxres?.url}
+            alt="thumbnail"
+          />
         </Link>
       </div>
       {/* description part */}
