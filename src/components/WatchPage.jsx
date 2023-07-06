@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import Loader from "./Loader";
 import useGetVdoDetails from "../utils/useGetVdoDetails";
 import CommentsContainer from "./CommentsContainer";
+import LiveChat from "./LiveChat";
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v");
@@ -82,7 +83,9 @@ const WatchPage = () => {
         </div>
       </div>
 
-      <div className="border-2 border-red-600 h-[90vh] w-1/3"></div>
+      <div className="h-[73vh] w-1/3">
+        <LiveChat />
+      </div>
     </div>
   );
 };
