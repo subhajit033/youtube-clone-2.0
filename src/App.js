@@ -5,8 +5,17 @@ import MainContainer from "./components/MainContainer";
 import WatchPage from "./components/WatchPage";
 import SearchedVdoContainer from "./components/SearchedVdoContainer";
 // import { Provider } from "react-redux";
+import Demo from "./components/Demo"
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
+function App() {
+  return (
+    <>
+      <Header />
+      <RouterProvider router={appRouter} />
+    </>
+  );
+}
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -24,16 +33,12 @@ const appRouter = createBrowserRouter([
         path: "/results",
         element: <SearchedVdoContainer />,
       },
+      {
+        path: "/demo",
+        element: <Demo />,
+      },
     ],
   },
 ]);
-function App() {
-  return (
-    <>
-      <Header />
-      <RouterProvider router={appRouter} />
-    </>
-  );
-}
 
 export default App;

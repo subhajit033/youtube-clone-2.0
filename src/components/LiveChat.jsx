@@ -15,7 +15,7 @@ const LiveChat = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       //api polling
-      console.log("api polling");
+
       dispatch(
         addMessage({
           name: generateRandomName(),
@@ -67,7 +67,18 @@ const LiveChat = () => {
               type="text"
               placeholder="Enter your message"
             />
-            <i className="fa-solid fa-paper-plane text-xl absolute right-6 top-1 text-blue-500 cursor-pointer"></i>
+            <i
+              onClick={() => {
+                dispatch(
+                  addMessage({
+                    name: "Subhajit",
+                    text: text,
+                  })
+                );
+                setText("");
+              }}
+              className="fa-solid fa-paper-plane text-xl absolute right-6 top-1 text-blue-500 cursor-pointer"
+            ></i>
           </form>
         </div>
       )}

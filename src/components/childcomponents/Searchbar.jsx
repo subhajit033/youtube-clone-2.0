@@ -4,6 +4,7 @@ import SearchResult from "./SearchResult";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
 import { cacheResult } from "../../utils/searchSlice";
+import { Link } from "react-router-dom";
 const Searchbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);

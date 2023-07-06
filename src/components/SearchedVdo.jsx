@@ -1,16 +1,20 @@
 import React from "react";
 import getVdoPublishedTime from "../utils/getVdoPublishedTime";
+import { Link } from "react-router-dom";
 const SearchedVdo = ({ video }) => {
+  // console.log(video);
   const hoursDiff = getVdoPublishedTime(video?.snippet?.publishedAt);
   return (
     <div className="flex items-start gap-6 my-4">
       <div className="">
         {/* video part */}
-        <img
-          className="w-96 h-auto rounded-xl"
-          src={video?.snippet?.thumbnails?.medium?.url}
-          alt="thumbnail"
-        />
+        <Link to={`/watch?v=${video?.id.videoId}`}>
+          <img
+            className="w-96 h-auto rounded-xl"
+            src={video?.snippet?.thumbnails?.medium?.url}
+            alt="thumbnail"
+          />
+        </Link>
       </div>
       <div className="flex items-start space-x-4 px-0 w-[45vw]">
         <div className="space-y-2">

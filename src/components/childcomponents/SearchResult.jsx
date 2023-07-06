@@ -4,14 +4,11 @@ const SearchResult = ({ Searchresult }) => {
   const searchQuery = Searchresult.split(" ").join("-").toString();
   // console.log(searchQuery);
   return (
-    <div
-      onClick={() => console.log("I am clicked " + searchQuery)}
-      className="px-4 py-1 flex items-center  gap-4 rounded-xl cursor-pointer transition duration-300 hover:bg-gray-300"
-    >
+    <div className="px-4 py-1 flex items-center  gap-4 rounded-xl cursor-pointer transition duration-300 hover:bg-gray-300">
       <i className="fa-sharp fa-solid fa-magnifying-glass  text-gray-500 cursor-pointer"></i>
-      <Link to="/results">
-        <span>{Searchresult}</span>
-      </Link>
+      {/* <Link to="/"> */}
+      <span>{Searchresult}</span>
+      {/* </Link> */}
     </div>
   );
 };

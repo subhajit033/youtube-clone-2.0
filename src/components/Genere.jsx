@@ -15,7 +15,7 @@ const Genere = () => {
     "Geo Politics",
   ];
   return (
-    <div className="flex space-x-4 px-3 my-2 border overflow-auto">
+    <div className="flex space-x-4 px-3 my-2 ">
       {allGenere.map((genere, index)=>{
         return <Buttons genere = {genere} key={index} />
       })}

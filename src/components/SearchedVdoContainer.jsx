@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchedVdo from "./SearchedVdo";
 import VideoCardShimmer from "./VideoCardShimmer";
 import useGetVdoSuggestions from "../utils/useGetVdoSuggestions";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom"
+import { useDispatch } from "react-redux";
+import { openMenu } from "../utils/appSlice";
 const SearchedVdoContainer = () => {
   const [searchParams] = useSearchParams();
   const searhQuery = searchParams.get("search_query");
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(openMenu());
+  }, []);
   const data = useGetVdoSuggestions(searhQuery);
 
   if (!data) {
