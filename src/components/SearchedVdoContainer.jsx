@@ -2,9 +2,13 @@ import React from "react";
 import SearchedVdo from "./SearchedVdo";
 import VideoCardShimmer from "./VideoCardShimmer";
 import useGetVdoSuggestions from "../utils/useGetVdoSuggestions";
+import { useSearchParams } from "react-router-dom";
 const SearchedVdoContainer = () => {
-  const data = useGetVdoSuggestions();
-  // console.log(data);
+  const [searchParams] = useSearchParams();
+  const searhQuery = searchParams.get("search_query");
+
+  const data = useGetVdoSuggestions(searhQuery);
+
   if (!data) {
     return (
       <div className="flex flex-1 flex-wrap justify-center items-start gap-10  mt-4">

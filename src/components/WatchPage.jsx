@@ -83,7 +83,7 @@ const WatchPage = () => {
         </div>
       </div>
 
-      <div className="h-[73vh] w-1/3">
+      <div className="w-1/3">
         <LiveChat />
       </div>
     </div>

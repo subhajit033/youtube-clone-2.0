@@ -1,10 +1,12 @@
 import React from "react";
-
-const Buttons = ({genere}) => {
+import { Link } from "react-router-dom";
+const Buttons = ({ genere }) => {
   return (
-    <button className="px-3 py-1 bg-gray-300 inline-block cursor-pointer rounded-lg">
+    <Link to={`/results?search_query=${genere.split(" ").join("-").toString()}`}>
+      <button className=" px-2 py-1 bg-gray-300 inline-block transition duration-300 cursor-pointer rounded-lg hover:scale-110">
       {genere}
     </button>
+    </Link>
   );
 };
 

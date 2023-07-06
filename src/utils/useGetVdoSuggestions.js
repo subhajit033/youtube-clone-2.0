@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { API_KEY } from "./constant";
-const useGetVdoSuggestions = () => {
+const useGetVdoSuggestions = (searchQuery) => {
   const [data, setData] = useState(null);
   useEffect(() => {
-    getVdoSuggestions("javascript mastery");
+    getVdoSuggestions(searchQuery);
   }, []);
   const getVdoSuggestions = async (searchQuery) => {
     const apiCall = await fetch(
