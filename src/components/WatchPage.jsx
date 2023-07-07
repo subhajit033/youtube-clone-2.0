@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { closeMenu } from "../utils/appSlice";
+import { closeMenu } from "../storeSlices/appSlice";
 import { useSearchParams } from "react-router-dom";
 import Loader from "./Loader";
-import useGetVdoDetails from "../utils/useGetVdoDetails";
+import useGetVdoDetails from "../hooks/useGetVdoDetails";
 import CommentsContainer from "./CommentsContainer";
 import LiveChat from "./LiveChat";
 const WatchPage = () => {

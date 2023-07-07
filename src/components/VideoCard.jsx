@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useChannelInfo from "../utils/useChannelInfo";
+import useChannelInfo from "../hooks/useChannelInfo";
 import getVdoPublishedTime from "../utils/getVdoPublishedTime";
 const VideoCard = ({ video, url, channelId }) => {
   const viewCount = Number(video?.statistics?.viewCount);

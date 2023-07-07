@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import SearchedVdo from "./SearchedVdo";
 import VideoCardShimmer from "./VideoCardShimmer";
-import useGetVdoSuggestions from "../utils/useGetVdoSuggestions";
-import { useSearchParams } from "react-router-dom"
+import useGetVdoSuggestions from "../hooks/useGetVdoSuggestions";
+import { useSearchParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { openMenu } from "../utils/appSlice";
+import { openMenu } from "../storeSlices/appSlice";
 const SearchedVdoContainer = () => {
   const [searchParams] = useSearchParams();
   const searhQuery = searchParams.get("search_query");
@@ -26,7 +26,7 @@ const SearchedVdoContainer = () => {
     );
   }
   return (
-    <div className="border-2 border-black flex-1 h-[89vh] overflow-auto px-12">
+    <div className="flex-1 h-[89vh] overflow-auto px-12">
       {data?.map((video) => {
         return <SearchedVdo key={video?.id?.videoId} video={video} />;
       })}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { API_KEY } from "./constant";
+import { API_KEY } from "../utils/constant";
 const useChannelInfo = (channelId) => {
   const [data, setData] = useState(null);
   useEffect(() => {

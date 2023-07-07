@@ -22,18 +22,7 @@ const SearchedVdo = ({ video }) => {
             {video?.snippet?.title}
           </h2>
           <div className="flex items-center gap-2">
-            <p className="text-sm text-gray-600">
-              {/* {viewCount > 1000000
-                ? (viewCount / 1000000).toFixed(1) + "M"
-                : viewCount > 1000
-                ? (viewCount / 1000).toFixed(1) + "K"
-                : viewCount}{" "} */}
-              223K views
-            </p>
-            <i
-              style={{ fontSize: "0.3rem" }}
-              className="fa-sharp fa-solid fa-circle text-gray-600"
-            ></i>
+            
             <p className="text-sm text-gray-600">
               {hoursDiff >= 24
                 ? Math.round(hoursDiff / 24) + "days"

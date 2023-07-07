@@ -3,7 +3,7 @@ import { YOUTUBE_SEARCH_API } from "../../utils/constant";
 import SearchResult from "./SearchResult";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
-import { cacheResult } from "../../utils/searchSlice";
+import { cacheResult } from "../../storeSlices/searchSlice";
 import { Link } from "react-router-dom";
 const Searchbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -63,8 +63,24 @@ const Searchbar = () => {
           placeholder="Search"
           value={searchQuery}
         />
+        {searchQuery !== "" && (
+          <i
+            onClick={() => {
+              setSearchQuery("");
+            }}
+            className="fa-solid fa-xmark absolute right-16 top-3 cursor-pointer"
+          ></i>
+        )}
         <span className="border-2 border-gray-400 py-1 px-4 rounded-r-full rounded-l-none bg-gray-300">
-          <i className="fa-sharp fa-solid fa-magnifying-glass text-xl text-gray-500 cursor-pointer"></i>
+          <Link
+            to={`/results?search_query=${searchQuery
+              ?.split(" ")
+              .join("-")
+              .toString()
+              .toLowerCase()}`}
+          >
+            <i className="fa-sharp fa-solid fa-magnifying-glass text-xl text-gray-500 cursor-pointer"></i>
+          </Link>
         </span>
       </div>
       {suggestions.length > 0 && isVisible && (
@@ -74,6 +90,7 @@ const Searchbar = () => {
               <SearchResult
                 Searchresult={Searchresult}
                 key={index + SearchResult}
+                setSearchQuery={setSearchQuery}
               />
             );
           })}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { API_KEY } from "./constant";
+import { API_KEY } from "../utils/constant";
 const useGetVdoDetails = (videoId) => {
   const [videoDetails, setVideoDetails] = useState(null);
 

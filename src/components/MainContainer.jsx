@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Genere from "./Genere";
 import VideoContainer from "./VideoContainer";
 import { useDispatch } from "react-redux";
-import { openMenu } from "../utils/appSlice";
+import { openMenu } from "../storeSlices/appSlice";
 const MainContainer = () => {
   const dispatch = useDispatch();
   useEffect(() => {

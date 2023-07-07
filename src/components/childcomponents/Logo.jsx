@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggleMenu } from "../../utils/appSlice";
+import { toggleMenu } from "../../storeSlices/appSlice";
 
 const Logo = () => {
   const dispatch = useDispatch();
