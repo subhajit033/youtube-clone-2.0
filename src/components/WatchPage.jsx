@@ -6,7 +6,19 @@ import Loader from "./Loader";
 import useGetVdoDetails from "../hooks/useGetVdoDetails";
 import CommentsContainer from "./CommentsContainer";
 import LiveChat from "./LiveChat";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { type } from "@testing-library/user-event/dist/type";
 const WatchPage = () => {
+  const avatarUrl = useSelector((store) => {
+    return store.channel.bannerUrl;
+  });
+  const subscriberCount = Number(
+    useSelector((store) => {
+      return store.channel.subscriberCount;
+    })
+  );
+  console.log(typeof subscriberCount);
+
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v");
   const dispatch = useDispatch();
@@ -39,16 +51,19 @@ const WatchPage = () => {
           <div className="flex justify-between items-center">
             {/* channel description */}
             <div className="flex items-center gap-5 my-4">
-              <img
-                className="w-11"
-                src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
-                alt="avatar"
-              />
+              <img className="w-11 rounded-full" src={avatarUrl} alt="avatar" />
               <div>
                 <p className="font-bold">
                   {videoDetails?.snippet?.channelTitle}
                 </p>
-                <p className="text-sm">910K subscribers</p>
+                <p className="text-sm">
+                  {subscriberCount > 1000000
+                    ? (subscriberCount / 1000000).toFixed(1) + "M "
+                    : subscriberCount > 1000
+                    ? (subscriberCount / 1000).toFixed(1) + "K "
+                    : subscriberCount}
+                  subscribers
+                </p>
               </div>
               <button className="bg-black text-white px-4 py-1.5 rounded-full hover:opacity-80 transition duration-300">
                 Subscribe

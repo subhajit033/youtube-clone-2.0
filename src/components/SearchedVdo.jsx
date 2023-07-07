@@ -3,7 +3,7 @@ import getVdoPublishedTime from "../utils/getVdoPublishedTime";
 import { Link } from "react-router-dom";
 const SearchedVdo = ({ video }) => {
   // console.log(video);
-  const hoursDiff = getVdoPublishedTime(video?.snippet?.publishedAt);
+  const publishedAt = getVdoPublishedTime(video?.snippet?.publishedAt);
   return (
     <div className="flex items-start gap-6 my-4">
       <div className="">
@@ -24,9 +24,7 @@ const SearchedVdo = ({ video }) => {
           <div className="flex items-center gap-2">
             
             <p className="text-sm text-gray-600">
-              {hoursDiff >= 24
-                ? Math.round(hoursDiff / 24) + "days"
-                : hoursDiff + "hours"}{" "}
+              {publishedAt}
               ago
             </p>
           </div>

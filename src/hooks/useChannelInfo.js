@@ -11,7 +11,7 @@ const useChannelInfo = (channelId) => {
         `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${channelId}&key=${API_KEY}`
       );
       const fetchedData = await apiCall.json();
-
+        //console.log(fetchedData?.items[0]?.statistics?.subscriberCount);
       setData(fetchedData?.items[0]);
     } catch (err) {
       console.log(err);

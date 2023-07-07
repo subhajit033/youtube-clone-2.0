@@ -2,18 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useChannelInfo from "../hooks/useChannelInfo";
 import getVdoPublishedTime from "../utils/getVdoPublishedTime";
+import { useDispatch } from "react-redux";
+import { addUrl, addSubscriber } from "../storeSlices/channelSlice";
 const VideoCard = ({ video, url, channelId }) => {
+  const dispatch = useDispatch();
   const viewCount = Number(video?.statistics?.viewCount);
-  const hoursDiff = getVdoPublishedTime(video?.snippet?.publishedAt);
-
+  const publishedAt = getVdoPublishedTime(video?.snippet?.publishedAt);
   const channelInfo = useChannelInfo(channelId);
-
+  // console.log("Subs "+channelInfo?.statistics?.subscriberCount);
+  const handleSubscriber =()=>{
+    dispatch(addUrl(channelInfo?.snippet?.thumbnails?.medium?.url));
+    dispatch(addSubscriber(channelInfo?.statistics?.subscriberCount))
+  }
   return (
     <div className=" p-2 rounded-xl shadow-xl transition duration-300 hover:-translate-y-2">
       <div className="mb-2">
         {/* video part */}
         <Link to={`/watch?v=${url}`}>
-          <img
+          <img onClick={handleSubscriber}
             className="w-80 h-auto rounded-xl"
             src={video?.snippet?.thumbnails?.maxres?.url}
             alt="thumbnail"
@@ -52,9 +58,7 @@ const VideoCard = ({ video, url, channelId }) => {
               className="fa-sharp fa-solid fa-circle text-gray-600"
             ></i>
             <p className="text-sm text-gray-600">
-              {hoursDiff >= 24
-                ? Math.round(hoursDiff / 24) + "days"
-                : hoursDiff + "hours"}{" "}
+              {publishedAt}
               ago
             </p>
           </div>
