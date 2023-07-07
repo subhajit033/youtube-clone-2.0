@@ -1,9 +1,8 @@
 import Body from "./components/Body";
-
 import MainContainer from "./components/MainContainer";
 import WatchPage from "./components/WatchPage";
 import SearchedVdoContainer from "./components/SearchedVdoContainer";
-
+import ErrorPage from "./components/ErrorPage";
 import Demo from "./components/Demo";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 function App() {
@@ -48,6 +47,7 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <Body />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

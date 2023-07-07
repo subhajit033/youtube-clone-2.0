@@ -53,7 +53,6 @@
   --bg: hsl(var(--hue), 90%, 95%);
   --fg: hsl(var(--hue), 90%, 5%);
   --trans-dur: 0.3s;
-  
 }
 .loader .ip {
   width: 16em;
@@ -110,5 +109,102 @@
     stroke-dashoffset: -358;
   }
 }
-/* button animation */
+/* online-offline animation */
 
+/*======================
+    404 page
+=======================*/
+
+.page_404 {
+  padding: 40px 0;
+  background: #fff;
+}
+
+.page_404 img {
+  width: 100%;
+}
+
+.four_zero_four_bg {
+  background-image: url("https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif");
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.four_zero_four_bg h1 {
+  font-size: 80px;
+}
+
+.four_zero_four_bg h3 {
+  font-size: 80px;
+}
+
+.link_404 {
+  color: #fff !important;
+  padding: 10px 20px;
+  background: #39ac31;
+  margin: 20px 0;
+  display: inline-block;
+  border-radius: 8px;
+}
+.contant_box_404 {
+  margin-top: -50px;
+}
+.wrapper-container {
+  width: 100%;
+  min-height: 100vh;
+  display: relative;
+  margin: 0;
+  padding: 0;
+  background: -webkit-linear-gradient(
+    -45deg,
+    #d9e5ed 0,
+    #adc2d1 25%,
+    #9faaba 50%,
+    #7e81a6 75%,
+    #22254c 100%
+  );
+}
+.wrapper-container .wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  align-items: center;
+  justify-content: center;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+/* For online off page */
+.wrapper-container .wrapper h1 {
+  color: white;
+  font-family: arial;
+  font-weight: bold;
+  font-size: 50px;
+  letter-spacing: 5px;
+  line-height: 5rem;
+  text-shadow: 0 0 3px white;
+}
+.wrapper-container .wrapper h4 {
+  color: #f1f1f1;
+  font-family: arial;
+  font-weight: 300;
+  font-size: 16px;
+}
+.wrapper-container .wrapper .button {
+  display: block;
+  margin: 20px 0 0;
+  padding: 15px 30px;
+  background: #22254c;
+  color: white;
+  font-family: arial;
+  letter-spacing: 5px;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  box-shadow: 0 0 15px #333fef;
+  /* outline: 4px solid white; */
+}

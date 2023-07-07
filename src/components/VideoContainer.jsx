@@ -1,19 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import VideoCard from "./VideoCard";
-import { YOUTUBE_API } from "../utils/constant";
 import VideoCardShimmer from "./VideoCardShimmer";
-// import useChannelInfo from "../utils/useChannelInfo";
+import useGetVideos from "../hooks/useGetVideos";
 const VideoContainer = () => {
-  const [videos, setVideos] = useState([]);
-  useEffect(() => {
-    getVideos();
-  }, []);
-
-  const getVideos = async () => {
-    const apiCall = await fetch(YOUTUBE_API);
-    const fetchedData = await apiCall.json();
-    setVideos(fetchedData?.items);
-  };
+  const videos = useGetVideos();
 
   return (
     <div className="flex flex-wrap justify-center items-start gap-10 h-[83vh] overflow-auto mt-4">
