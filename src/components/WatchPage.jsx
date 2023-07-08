@@ -7,7 +7,7 @@ import useGetVdoDetails from "../hooks/useGetVdoDetails";
 import CommentsContainer from "./CommentsContainer";
 import LiveChat from "./LiveChat";
 import { useSelector } from "react-redux/es/hooks/useSelector";
-import { type } from "@testing-library/user-event/dist/type";
+
 const WatchPage = () => {
   const avatarUrl = useSelector((store) => {
     return store.channel.bannerUrl;
@@ -17,8 +17,7 @@ const WatchPage = () => {
       return store.channel.subscriberCount;
     })
   );
-  console.log(typeof subscriberCount);
-
+  
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v");
   const dispatch = useDispatch();

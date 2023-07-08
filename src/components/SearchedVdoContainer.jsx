@@ -28,7 +28,7 @@ const SearchedVdoContainer = () => {
   return (
     <div className="flex-1 h-[89vh] overflow-auto px-12">
       {data?.map((video) => {
-        return <SearchedVdo key={video?.id?.videoId} video={video} />;
+        return <SearchedVdo key={video?.id?.videoId} channelId = {video?.snippet?.channelId} video={video} />;
       })}
     </div>
   );
