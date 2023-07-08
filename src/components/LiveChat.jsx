@@ -7,7 +7,7 @@ import { generateRandomString } from "../utils/helper";
 
 const LiveChat = () => {
   const [text, setText] = useState("");
-  const [isChatVisible, setIsChatVisible] = useState(true);
+  const [isChatVisible, setIsChatVisible] = useState(false);
   const chatMessages = useSelector((store) => {
     return store.chat.messages;
   });

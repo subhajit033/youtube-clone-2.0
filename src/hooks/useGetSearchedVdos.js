@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { API_KEY } from "../utils/constant";
-const useGetVdoSuggestions = (searchQuery) => {
+const useGetSearchedVdos = (searchQuery) => {
   const [data, setData] = useState(null);
   useEffect(() => {
     getVdoSuggestions(searchQuery);
@@ -22,4 +22,4 @@ const useGetVdoSuggestions = (searchQuery) => {
   };
   return data;
 };
-export default useGetVdoSuggestions;
+export default useGetSearchedVdos;

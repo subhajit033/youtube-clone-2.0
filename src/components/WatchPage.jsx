@@ -7,7 +7,7 @@ import useGetVdoDetails from "../hooks/useGetVdoDetails";
 import CommentsContainer from "./CommentsContainer";
 import LiveChat from "./LiveChat";
 import { useSelector } from "react-redux/es/hooks/useSelector";
-
+import SuggestedVdocontainer from "./SuggestedVdocontainer";
 const WatchPage = () => {
   const avatarUrl = useSelector((store) => {
     return store.channel.bannerUrl;
@@ -99,6 +99,7 @@ const WatchPage = () => {
 
       <div className="w-1/3">
         <LiveChat />
+        <SuggestedVdocontainer />
       </div>
     </div>
   );
