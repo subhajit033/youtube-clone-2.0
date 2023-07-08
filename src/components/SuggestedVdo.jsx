@@ -1,6 +1,7 @@
 import React from "react";
-
-const SuggestedVdo = () => {
+import getVdoPublishedTime from "../utils/getVdoPublishedTime";
+const SuggestedVdo = ({ video }) => {
+    const publishedAt = getVdoPublishedTime(video?.snippet?.publishedAt);
   return (
     <div className="flex items-start gap-4 my-4">
       <div className="">
@@ -8,9 +9,7 @@ const SuggestedVdo = () => {
         {/* <Link to={`/watch?v=${video?.id.videoId}`}> */}
         <img
           className="w-96 h-auto rounded-xl"
-          src={
-            "https://i.ytimg.com/an_webp/aCaTUryjWrw/mqdefault_6s.webp?du=3000&sqp=CKSupaUG&rs=AOn4CLAxPmsSs1Qtlzdjv_7kzBMrEI9k8A"
-          }
+          src={video?.snippet?.thumbnails?.medium?.url}
           // video?.snippet?.thumbnails?.medium?.url
           alt="thumbnail"
         />
@@ -19,7 +18,7 @@ const SuggestedVdo = () => {
       <div className="flex items-start space-x-4 px-0 w-[45vw]">
         <div className="space-y-1">
           <h2 className="font-semibold w-60 leading-5 overflow-hidden text-ellipsis whitespace-nowrap">
-            {`How to Actually Get a Job in Web Development (Get Hired) 👨‍💻`}
+            {video?.snippet?.title}
           </h2>
 
           <div className="flex items-center gap-3">
@@ -30,12 +29,12 @@ const SuggestedVdo = () => {
               alt="channel-logo"
             /> */}
             <p className="text-sm font-semibold text-gray-500">
-              {`Code With Harry`}
+              {video?.snippet?.channelTitle}
             </p>
           </div>
           <div className="flex items-center gap-2">
             <p className="text-xs text-gray-600">
-              {"23 hours"}
+              {publishedAt}
               ago
             </p>
           </div>
