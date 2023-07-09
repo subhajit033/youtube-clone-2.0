@@ -6,20 +6,14 @@ const SuggestedVdocontainer = ({ videoId }) => {
   const suggestedVdoArr = useGetSuggestedVdo(videoId);
   return (
     <div>
-      {suggestedVdoArr.length === 0 || suggestedVdoArr === undefined
+      {suggestedVdoArr === undefined || suggestedVdoArr?.length === 0
         ? Array(10)
             .fill(" ")
             .map((ele, inedx) => {
               return <SuggestedVdoShimmer key={inedx} />;
             })
         : suggestedVdoArr?.map((video) => {
-            return (
-              <SuggestedVdo
-                key={video?.id?.videoId}
-                url={video?.id?.videoId}
-                video={video}
-              />
-            );
+            return <SuggestedVdo key={video?.id?.videoId} video={video} />;
           })}
     </div>
   );

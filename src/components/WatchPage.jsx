@@ -25,6 +25,9 @@ const WatchPage = () => {
   useEffect(() => {
     dispatch(closeMenu());
   }, []);
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  }, [videoId])
   if (!videoDetails) {
     return <Loader />;
   }

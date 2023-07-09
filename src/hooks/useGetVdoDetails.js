@@ -5,7 +5,7 @@ const useGetVdoDetails = (videoId) => {
 
   useEffect(() => {
     getSpecificVdo(videoId);
-  }, []);
+  }, [videoId]);
   const getSpecificVdo = async (videoId) => {
     try {
       const apiCall = await fetch(

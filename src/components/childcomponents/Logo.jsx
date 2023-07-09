@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../../storeSlices/appSlice";
-
+import { Link } from "react-router-dom";
 const Logo = () => {
   const dispatch = useDispatch();
   const handleToggleMenu = () => {
@@ -26,11 +26,13 @@ const Logo = () => {
         </svg>
       </div>
 
-      <img
-        className="w-32 rounded-lg"
-        src="https://t3.ftcdn.net/jpg/05/07/46/84/360_F_507468479_HfrpT7CIoYTBZSGRQi7RcWgo98wo3vb7.jpg"
-        alt="youtube-logo"
-      />
+      <Link to="/">
+        <img
+          className="w-32 rounded-lg"
+          src="https://t3.ftcdn.net/jpg/05/07/46/84/360_F_507468479_HfrpT7CIoYTBZSGRQi7RcWgo98wo3vb7.jpg"
+          alt="youtube-logo"
+        />
+      </Link>
     </div>
   );
 };

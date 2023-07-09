@@ -8,8 +8,7 @@ const VideoCard = ({ video, url, channelId }) => {
   const dispatch = useDispatch();
   const viewCount = Number(video?.statistics?.viewCount);
   const publishedAt = getVdoPublishedTime(video?.snippet?.publishedAt);
-  const channelInfo = useChannelInfo(channelId);
-  // console.log("Subs "+channelInfo?.statistics?.subscriberCount);
+  const channelInfo = useChannelInfo(channelId);  
   const handleSubscriber =()=>{
     dispatch(addUrl(channelInfo?.snippet?.thumbnails?.medium?.url));
     dispatch(addSubscriber(channelInfo?.statistics?.subscriberCount))
