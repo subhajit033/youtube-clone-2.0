@@ -3,7 +3,8 @@ import icon from "../assets/youtube-images/icon";
 import NavChild from "./childcomponents/NavChild";
 import Feature from "./childcomponents/Feature";
 import { useSelector } from "react-redux/es/hooks/useSelector";
-
+import Subscriptions from "./childcomponents/Subscriptions";
+import {trendingTopics } from "../utils/helper"
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => {
     return store.app.isMenuopen;
@@ -30,9 +31,11 @@ const Sidebar = () => {
       </div>
       <div className="h-[1px] bg-gray-400 my-5"></div>
 
-      <div className="space-y-3 space-x-3">
-        <p className="font-semibold">Subcriptions</p>
-        {/* child_1 */}
+      <div className="space-y-1 ">
+        <p className="font-semibold">Trending on Youtube 🔥</p>
+        {trendingTopics.map((topic, index)=>{
+          return <Subscriptions key={index} topic={topic} />
+        })}
       </div>
     </div>
   );

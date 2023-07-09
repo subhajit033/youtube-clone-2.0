@@ -8,17 +8,18 @@ const VideoCard = ({ video, url, channelId }) => {
   const dispatch = useDispatch();
   const viewCount = Number(video?.statistics?.viewCount);
   const publishedAt = getVdoPublishedTime(video?.snippet?.publishedAt);
-  const channelInfo = useChannelInfo(channelId);  
-  const handleSubscriber =()=>{
+  const channelInfo = useChannelInfo(channelId);
+  const handleSubscriber = () => {
     dispatch(addUrl(channelInfo?.snippet?.thumbnails?.medium?.url));
-    dispatch(addSubscriber(channelInfo?.statistics?.subscriberCount))
-  }
+    dispatch(addSubscriber(channelInfo?.statistics?.subscriberCount));
+  };
   return (
     <div className=" p-2 rounded-xl shadow-xl transition duration-300 hover:-translate-y-2">
       <div className="mb-2">
         {/* video part */}
         <Link to={`/watch?v=${url}`}>
-          <img onClick={handleSubscriber}
+          <img
+            onClick={handleSubscriber}
             className="w-80 h-auto rounded-xl"
             src={video?.snippet?.thumbnails?.maxres?.url}
             alt="thumbnail"
@@ -28,12 +29,16 @@ const VideoCard = ({ video, url, channelId }) => {
       {/* description part */}
       <div className="flex items-start space-x-4 px-0 w-80">
         <div className="">
-          <img
-            className="max-w-[2.5rem] rounded-full"
-            src={channelInfo?.snippet?.thumbnails?.medium?.url}
-            // channelInfo?.snippet?.thumbnails?.medium?.url
-            alt="channel-logo"
-          />
+          {channelInfo ? (
+            <img
+              className="max-w-[2.5rem] rounded-full"
+              src={channelInfo?.snippet?.thumbnails?.medium?.url}
+              // channelInfo?.snippet?.thumbnails?.medium?.url
+              alt="channel-logo"
+            />
+          ) : (
+            <div className="w-6 h-6 rounded-full bg-gray-300"></div>
+          )}
         </div>
 
         <div>

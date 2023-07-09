@@ -40,7 +40,7 @@ const LiveChat = () => {
       </button>
       {isChatVisible && (
         <div className="border border-black rounded-lg">
-          <div className=" h-[550px] w-full overflow-auto  px-4 flex flex-col-reverse">
+          <div className=" h-[450px] w-full overflow-auto  px-4 flex flex-col-reverse">
             {chatMessages?.map((message, index) => {
               return <ChatMessage key={index} ChatMessage={message} />;
             })}

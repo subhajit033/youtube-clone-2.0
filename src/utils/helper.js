@@ -190,3 +190,20 @@ export function generateRandomString() {
     }
     return result;
 }
+export const trendingTopics = [
+  "ASMR",
+  "Challenges and Pranks",
+  "Gaming and Let's Play videos",
+  "Makeup tutorials and beauty vlogs",
+  "Fitness and wellness routines",
+  "DIY projects and crafting ideas",
+  "Travel vlogs and adventure videos",
+  "Reaction videos to popular shows, movies, or music",
+  "Food challenges and cooking tutorials",
+  "Unboxing and product reviews",
+  "Comedy sketches and skits",
+  "Conspiracy theories and mysteries",
+  "True crime documentaries and investigations",
+  "Celebrity news and gossip",
+  "Life hacks and productivity tips"
+];

@@ -1,18 +1,18 @@
 import React from "react";
-
-const Subscriptions = () => {
+import { Link } from "react-router-dom";
+const Subscriptions = ({ topic }) => {
   return (
-    <div className="flex justify-between items-center">
-      <div className="flex space-x-3 items-center">
-        <img
-          className="w-8 rounded-full"
-          src="youtube-img/subhajit.jpeg"
-          alt=""
-        />
-        <p className="text-sm font-semibold">CodeWithHarry</p>
-      </div>
-      <img className="w-8" src="youtube-img/live.png" alt="" />
-    </div>
+    <Link
+      to={`/results?search_query=${topic
+        .split(" ")
+        .join("-")
+        .toString()
+        .toLowerCase()}`}
+    >
+      <p className="text-sm font-semibold w-56 overflow-hidden text-ellipsis whitespace-nowrap py-1 px-2 rounded-lg cursor-pointer transition duration-300 hover:bg-red-500 hover:text-gray-100">
+        {topic}
+      </p>
+    </Link>
   );
 };
 

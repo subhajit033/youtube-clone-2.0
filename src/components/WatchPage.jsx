@@ -35,7 +35,7 @@ const WatchPage = () => {
   const likeCount = Number(videoDetails?.statistics?.likeCount);
   return (
     <div className="w-[100%] flex px-12 gap-10">
-      <div className="border-2 border-black h-[90vh] w-2/3">
+      <div className=" h-[90vh] w-2/3">
         <div>
           <iframe
             width="950"
