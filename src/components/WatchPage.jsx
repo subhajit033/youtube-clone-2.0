@@ -99,7 +99,7 @@ const WatchPage = () => {
 
       <div className="w-1/3">
         <LiveChat />
-        <SuggestedVdocontainer />
+        <SuggestedVdocontainer videoId={videoId} />
       </div>
     </div>
   );

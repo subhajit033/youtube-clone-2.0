@@ -1,11 +1,11 @@
 import React from "react";
 import getVdoPublishedTime from "../utils/getVdoPublishedTime";
 const SuggestedVdo = ({ video }) => {
-    const publishedAt = getVdoPublishedTime(video?.snippet?.publishedAt);
+  const publishedAt = getVdoPublishedTime(video?.snippet?.publishedAt);
   return (
     <div className="flex items-start gap-4 my-4">
       <div className="">
-        {/* video part */}
+        
         {/* <Link to={`/watch?v=${video?.id.videoId}`}> */}
         <img
           className="w-96 h-auto rounded-xl"

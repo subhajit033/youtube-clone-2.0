@@ -17,7 +17,7 @@ const Status = () => {
               <div className="contant_box_404">
                 <h3 className="text-4xl">{statusText}</h3>
 
-                <p className="text-2xl">the page you are looking for not avaible!</p>
+                <p className="text-2xl">something wents wrong</p>
 
                 <Link href="" className="link_404">
                   Go to Home
