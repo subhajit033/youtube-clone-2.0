@@ -38,17 +38,21 @@ const Searchbar = () => {
     };
   }, [searchQuery]);
   const getSuggestions = async (searchQuery) => {
-    const apiCall = await fetch(YOUTUBE_SEARCH_API + searchQuery);
-    const fetchedData = await apiCall.json();
-    setSuggestions(fetchedData[1]);
-    dispatch(
-      cacheResult({
-        /* `[searchQuery]: fetchedData[1],` is creating a dynamic key-value pair in an object.
+    try {
+      const apiCall = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+      const fetchedData = await apiCall.json();
+      setSuggestions(fetchedData[1]);
+      dispatch(
+        cacheResult({
+          /* `[searchQuery]: fetchedData[1],` is creating a dynamic key-value pair in an object.
       if we do here searchQuery: fetchedData[1] then searchQuery is set as permanent key for object not dynamic key
        */
-        [searchQuery]: fetchedData[1],
-      })
-    );
+          [searchQuery]: fetchedData[1],
+        })
+      );
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
